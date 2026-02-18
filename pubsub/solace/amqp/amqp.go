@@ -115,7 +115,7 @@ func (a *amqpPubSub) Publish(ctx context.Context, req *pubsub.PublishRequest) er
 	if ttlProp != "" {
 		ttlInSeconds, err := strconv.Atoi(ttlProp)
 		if err != nil {
-			a.logger.Warnf("Invalid ttl received from message %s", ttlInSeconds)
+			a.logger.Warnf("Invalid ttl received from message %d", ttlInSeconds)
 		} else {
 			m.Header.TTL = time.Second * time.Duration(ttlInSeconds)
 		}
